@@ -6,7 +6,7 @@
 <title>Upiamo — Your browser grows your Instagram</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,300&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
 <style>
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 :root {
@@ -22,15 +22,15 @@
   --border:    #E2E6EA;
 }
 html { scroll-behavior: smooth; }
-body { font-family: 'Montserrat', sans-serif; background: var(--body-bg); color: var(--text); -webkit-font-smoothing: antialiased; overflow-x: hidden; }
+body { font-family: 'Montserrat'; background: var(--body-bg); color: var(--text); -webkit-font-smoothing: antialiased; overflow-x: hidden; }
 
 /* NAV */
 nav { background: var(--blue); position: fixed; top: 0; left: 0; right: 0; z-index: 100; display: flex; align-items: center; justify-content: space-between; padding: 0 6%; height: 52px; }
-.logo { text-decoration: none; }
-.logo-name { font-size: 1.3rem; font-weight: 800; color: var(--white); letter-spacing: -0.02em; display: block; }
-.logo-tag  { font-size: 0.5rem; font-weight: 500; color: rgba(255,255,255,.7); letter-spacing: 0.06em; display: block; margin-top: 2px; }
-.nav-btn { background: var(--red); color: var(--white); font-size: 0.72rem; font-weight: 700; letter-spacing: 0.05em; text-transform: uppercase; padding: 8px 20px; border-radius: 6px; text-decoration: none; box-shadow: 0 2px 10px rgba(221,26,26,.4); transition: background .2s, transform .15s; }
-.nav-btn:hover { background: var(--red-dark); transform: translateY(-1px); }
+.logo { text-decoration: none; display: inline-grid; justify-items: start; width: max-content; }
+.logo-name { font-size: 1.3rem; font-weight: 800; color: var(--white); letter-spacing: -0.02em; display: block; line-height: .86; }
+.logo-tag  { font-size: 0.5rem; font-weight: 500; color: rgba(255,255,255,.7); letter-spacing: 0; display: block; margin-top: 5px; width: 100%; text-align: justify; text-align-last: justify; line-height: 1; }
+.nav-btn { background: linear-gradient(145deg, #E32626 0%, var(--red) 45%, #B81212 100%); color: var(--white); font-size: 0.72rem; font-weight: 700; letter-spacing: 0.05em; text-transform: uppercase; padding: 8px 20px; border-radius: 6px; text-decoration: none; box-shadow: 0 2px 12px rgba(173,18,18,.42); transition: background .2s, transform .15s, box-shadow .2s; }
+.nav-btn:hover { background: linear-gradient(145deg, var(--red) 0%, #C01515 48%, #9E0F0F 100%); transform: translateY(-1px); box-shadow: 0 4px 16px rgba(173,18,18,.5); }
 
 /* PHOTO GRID BACKGROUND */
 .photo-grid { position: fixed; inset: 0; z-index: 0; display: grid; grid-template-columns: repeat(4,1fr); grid-template-rows: repeat(3,1fr); pointer-events: none; }
@@ -46,7 +46,7 @@ nav { background: var(--blue); position: fixed; top: 0; left: 0; right: 0; z-ind
 .photo-cell:nth-child(10) { background: #53aaee; opacity:.3; }
 .photo-cell:nth-child(11) { background: #2d87d4; opacity:.25; }
 .photo-cell:nth-child(12) { background: #3e9de6; opacity:.28; }
-.blue-overlay { position: fixed; inset: 0; z-index: 1; pointer-events: none; background: linear-gradient(160deg, #1A5ECC 0%, #2E85DB 45%, #1A4FA8 100%); opacity: 0.9; }
+.blue-overlay { position: fixed; inset: 0; z-index: 1; pointer-events: none; background: linear-gradient(160deg, #164CAB 0%, #2E85DB 44%, #082E73 100%); opacity: 0.92; }
 
 nav, .page { position: relative; z-index: 2; }
 
@@ -56,22 +56,15 @@ nav, .page { position: relative; z-index: 2; }
 h1 { font-size: clamp(2.8rem, 5.5vw, 5rem); font-weight: 900; line-height: 0.97; letter-spacing: -0.03em; color: var(--white); margin-bottom: 24px; animation: up .6s ease both; text-shadow: 0 2px 20px rgba(0,0,0,.12); }
 h1 .light { display: block; font-weight: 300; font-style: italic; color: rgba(255,255,255,.75); }
 .hero-sub { font-size: .98rem; font-weight: 400; color: rgba(255,255,255,.78); line-height: 1.75; max-width: 440px; margin-bottom: 34px; animation: up .6s .15s ease both; }
-.hero-btn { display: inline-flex; align-items: center; gap: 8px; background: var(--red); color: var(--white); font-size: .8rem; font-weight: 700; letter-spacing: .06em; text-transform: uppercase; padding: 15px 36px; border-radius: 8px; text-decoration: none; box-shadow: 0 4px 24px rgba(221,26,26,.5); transition: background .2s, transform .15s, box-shadow .2s; animation: up .6s .3s ease both; }
-.hero-btn:hover { background: var(--red-dark); transform: translateY(-2px); box-shadow: 0 8px 30px rgba(221,26,26,.55); }
-
-/* CARDS */
-.cols-wrap { padding: 0 6% 60px; }
-.cols { max-width: 900px; margin: 0 auto; display: grid; grid-template-columns: repeat(3,1fr); gap: 20px; }
-.col-card { background: var(--white); border-radius: 14px; border: 1px solid var(--border); box-shadow: 0 4px 24px rgba(0,0,0,.1); padding: 32px 28px; opacity: 0; transform: translateY(22px); transition: opacity .6s ease, transform .6s ease; }
-.col-card.visible { opacity: 1; transform: none; }
-.col-card:nth-child(2) { transition-delay: .1s; }
-.col-card:nth-child(3) { transition-delay: .2s; }
-.col-title { font-size: 1rem; font-weight: 800; letter-spacing: -0.02em; color: var(--text); line-height: 1.25; }
-.col-body { font-size: .82rem; font-weight: 400; color: var(--muted); line-height: 1.72; margin-top: 10px; }
-.col-body em { font-style: italic; }
-.col-cta-btn { display: inline-flex; align-items: center; gap: 7px; background: var(--red); color: var(--white); font-size: .72rem; font-weight: 700; letter-spacing: .06em; text-transform: uppercase; padding: 12px 24px; border-radius: 7px; text-decoration: none; margin-top: 18px; box-shadow: 0 3px 16px rgba(221,26,26,.4); transition: background .2s, transform .15s; }
-.col-cta-btn:hover { background: var(--red-dark); transform: translateY(-1px); }
-.col-note { margin-top: 10px; font-size: .62rem; color: #ADB5BD; letter-spacing: .03em; }
+.hero-btn { display: inline-flex; align-items: center; gap: 8px; background: linear-gradient(145deg, #E32626 0%, var(--red) 45%, #B81212 100%); color: var(--white); font-size: .8rem; font-weight: 700; letter-spacing: .06em; text-transform: uppercase; padding: 15px 36px; border-radius: 8px; text-decoration: none; box-shadow: 0 4px 24px rgba(173,18,18,.52); animation: up .6s .3s ease both; transition: background .2s, transform .15s, box-shadow .2s; }
+.hero-btn:hover { background: linear-gradient(145deg, var(--red) 0%, #C01515 48%, #9E0F0F 100%); transform: translateY(-2px); box-shadow: 0 8px 30px rgba(173,18,18,.58); }
+.iamo-note { margin-top: 62px; max-width: 440px; animation: up .6s .45s ease both; }
+.iamo-note h2 { color: rgba(255,255,255,.92); font-size: .78rem; font-weight: 800; letter-spacing: .12em; text-transform: uppercase; margin-bottom: 12px; }
+.iamo-note p { color: rgba(255,255,255,.68); font-size: .82rem; font-weight: 400; line-height: 1.72; }
+.iamo-note a { color: rgba(255,255,255,.86); text-decoration: none; border-bottom: 1px solid rgba(255,255,255,.28); }
+.iamo-note a:hover { color: var(--white); border-bottom-color: rgba(255,255,255,.7); }
+.founder-line { margin-top: 14px; }
+.iamo-note em { font-style: italic; }
 
 /* FOOTER */
 footer { background: var(--blue-dark); padding: 22px 6%; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 12px; position: relative; z-index: 2; }
@@ -79,7 +72,6 @@ footer { background: var(--blue-dark); padding: 22px 6%; display: flex; align-it
 
 @keyframes up { from{opacity:0;transform:translateY(18px)} to{opacity:1;transform:none} }
 
-@media(max-width:720px){ .cols { grid-template-columns: 1fr; } }
 @media(max-width:640px){ footer { flex-direction: column; text-align: center; } }
 </style>
 </head>
@@ -108,31 +100,15 @@ footer { background: var(--blue-dark); padding: 22px 6%; display: flex; align-it
   <section class="hero">
     <div class="hero-content">
       <h1>Your browser<br>grows your<br><span class="light">Instagram.</span></h1>
-      <p class="hero-sub">Upiamo quietly engages with the right accounts on your behalf, from your own browser. We don't need your credit card or your passwords.</p>
-      <a href="https://app.upiamo.com" class="hero-btn">Try it free →</a>
+      <p class="hero-sub">Upiamo helps you test target accounts, engage from your own browser, and see the real statistics behind which audiences actually become followers. We don't need your credit card or your passwords.</p>
+      <a href="https://app.upiamo.com" class="hero-btn">Find what actually works →</a>
+      <div class="iamo-note">
+        <h2>upiamo = up + iamo</h2>
+        <p><em>-iamo</em> is the Italian verb ending for <em>we</em>. <em>Upiamo</em> means <em>we grow, together</em>.</p>
+        <p class="founder-line">A bootstrap project by longtime collaborators <a href="https://www.linkedin.com/in/ericastarks/">Erica Starks</a> and <a href="https://www.linkedin.com/in/julienathomas/">Dr. Julien Thomas</a>, bringing together entrepreneurial and marketing instincts with privacy-minded cybersecurity and AI-backed solutions.</p>
+      </div>
     </div>
   </section>
-
-  <div class="cols-wrap">
-    <div class="cols">
-
-      <div class="col-card">
-        <div class="col-title">Learn things you never expected.</div>
-      </div>
-
-      <div class="col-card">
-        <div class="col-title">Ready to find out who really follows you?</div>
-        <a href="https://app.upiamo.com" class="col-cta-btn">Start free trial →</a>
-        <p class="col-note">No credit card required &nbsp;·&nbsp; Cancel anytime</p>
-      </div>
-
-      <div class="col-card">
-        <div class="col-title">upiamo = up + iamo</div>
-        <p class="col-body"><em>Iamo</em> is Italian for <em>together</em>. We grow, together.</p>
-      </div>
-
-    </div>
-  </div>
 
 </div>
 
@@ -144,11 +120,6 @@ footer { background: var(--blue-dark); padding: 22px 6%; display: flex; align-it
   <span class="f-copy">© 2026 Upiamo. All rights reserved.</span>
 </footer>
 
-<script>
-const obs = new IntersectionObserver(entries => {
-  entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); obs.unobserve(e.target); } });
-}, { threshold: 0.1 });
-document.querySelectorAll('.col-card').forEach(c => obs.observe(c));
-</script>
+<script></script>
 </body>
 </html>
